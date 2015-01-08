@@ -9,9 +9,10 @@ All solutions follow these steps:
 
 - build brute force solution
 - add memoization
-- covnert solution to bottom-up one
+- convert solution to bottom-up one
 
 Problems covered:
 - coin change problem
+- unique paths problem
 
 
