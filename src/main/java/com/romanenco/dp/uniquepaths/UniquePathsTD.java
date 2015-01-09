@@ -32,7 +32,7 @@ package com.romanenco.dp.uniquepaths;
 public class UniquePathsTD {
 
     public long uniquePathsTD(int m, int n) {
-        final long[][] memo = new long[m + 1][n + 1];
+        final long[][] memo = new long[m][n];
         return paths(0, 0, m, n, memo);
     }
 
