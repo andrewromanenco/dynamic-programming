@@ -25,17 +25,28 @@ public class MinJumpsTDTest {
 
     @Test
     public void test() {
-        final MinJumpsBU solution = new MinJumpsBU();
+        final MinJumpsTD solution = new MinJumpsTD();
         final int result = solution.jump(new int[]{3,5,1,1,1,1});
         Assert.assertEquals(2, result);
     }
 
     @Test
     public void testSlow() {
-        final MinJumpsBU solution = new MinJumpsBU();
+        final MinJumpsTD solution = new MinJumpsTD();
         final int result = solution.jump(new int[]{5,6,4,4,6,9,4,4,7,4,4,8,2,6,
                 8,1,5,9,6,5,2,7,9,7,9,6,9,4,1,6,8,8,4});
         Assert.assertEquals(5, result);
+    }
+
+    @Test
+    public void testStillSlow() {
+        final MinJumpsTD solution = new MinJumpsTD();
+        final int[] input = new int[5000];
+        for (int i = 0; i < input.length; i++) {
+            input[i] = i + 2;
+        }
+        final int result = solution.jump(input);
+        Assert.assertEquals(12, result);
     }
 
 }

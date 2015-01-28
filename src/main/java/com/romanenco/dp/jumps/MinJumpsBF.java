@@ -18,11 +18,9 @@
 
 package com.romanenco.dp.jumps;
 
-import java.util.Arrays;
-
 /**
  * Min jumps problem.
- * Bottom-up implementation.
+ * Brute force solution.
  * See http://www.romanenco.com/jumps-problem/
  *
  * @author Andrew Romanenco
@@ -34,21 +32,18 @@ public class MinJumpsBF {
         if (A.length < 2) {
             return 0;
         }
-        final int[] memo = new int[A.length];
-        Arrays.fill(memo, Integer.MAX_VALUE - 1);
-        memo[memo.length - 1] = 0;
-        for (int i = memo.length - 2; i >= 0; i --) {
-            int min = Integer.MAX_VALUE;
-            for (int k = 1; k <= A[i]; k++) {
-                if (i + k >= A.length - 1) {
-                    min = 1;
-                } else {
-                    min = Math.min(min, 1 + A[i + k]);
-                }
-            }
-            memo[i] = min;
+        return jump(A, 0);
+    }
+
+    private int jump(int[] A, int index) {
+        if (index >= A.length - 1) {
+            return 0;
         }
-        return memo[0];
+        int min = Integer.MAX_VALUE;
+        for (int i = 1; i <= A[index]; i++) {
+            min = Math.min(min, 1 + jump(A, index + i));
+        }
+        return min;
     }
 
 }

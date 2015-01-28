@@ -38,4 +38,15 @@ public class MinJumpsLinearTest {
         Assert.assertEquals(5, result);
     }
 
+    @Test
+    public void testStillSlow() {
+        final MinJumpsLinear solution = new MinJumpsLinear();
+        final int[] input = new int[40000];
+        for (int i = 0; i < input.length; i++) {
+            input[i] = i + 2;
+        }
+        final int result = solution.jump(input);
+        Assert.assertEquals(15, result);
+    }
+
 }
